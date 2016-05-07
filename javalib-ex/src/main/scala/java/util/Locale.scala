@@ -1,6 +1,6 @@
 package java.util
 
-import scala.scalajs.js.LocaleDB
+import scala.scalajs.js.LocaleRegistry
 
 object Locale {
 
@@ -19,7 +19,7 @@ object Locale {
     defaultLocale = Some(newLocale)
   }
 
-  def forLanguageTag(languageTag: String): Locale = LocaleDB
+  def forLanguageTag(languageTag: String): Locale = LocaleRegistry
     .forLanguageTag(languageTag).getOrElse(EMPTY)
 }
 
