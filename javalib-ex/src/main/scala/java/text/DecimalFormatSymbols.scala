@@ -1,5 +1,14 @@
 package java.text
 
+import java.util.Locale
+
+import scala.scalajs.js.LocaleRegistry
+
+object DecimalFormatSymbols {
+  def getInstance(locale: Locale):DecimalFormatSymbols =
+    LocaleRegistry.decimalFormatSymbol(locale).getOrElse(throw new IllegalArgumentException("Unknown locale"))
+}
+
 class DecimalFormatSymbols() {
   private[this] var zeroDigit: Option[Char] = None
   private[this] var minusSign: Option[Char] = None
@@ -15,4 +24,6 @@ class DecimalFormatSymbols() {
     this.minusSign = Some(minusSign)
   def setDecimalSeparator(decimalSeparator: Char):Unit =
     this.decimalSeparator = Some(decimalSeparator)
+
+  // TODO Complete the rest of the public methods
 }
